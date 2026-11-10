@@ -72,6 +72,7 @@
             this.btnTTTK.TabIndex = 3;
             this.btnTTTK.Text = "Thông Tin Tài Khoản";
             this.btnTTTK.UseVisualStyleBackColor = true;
+            this.btnTTTK.Click += new System.EventHandler(this.btnTTTK_Click);
             // 
             // TrangChu
             // 
@@ -84,7 +85,6 @@
             this.Controls.Add(this.btnMuaBan);
             this.Name = "TrangChu";
             this.Text = "TrangChu";
-            this.Load += new System.EventHandler(this.TrangChu_Load);
             this.ResumeLayout(false);
 
         }

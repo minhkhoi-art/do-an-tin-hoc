@@ -16,7 +16,7 @@ namespace đồ_án_tin_học_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new TrangChu());
         }
     }
 }

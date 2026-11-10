@@ -38,6 +38,7 @@
             this.cbMaCP = new System.Windows.Forms.ComboBox();
             this.txtGia = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
+            this.btnQuayLai = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMaCK
@@ -147,11 +148,22 @@
             this.txtSoLuong.Size = new System.Drawing.Size(196, 22);
             this.txtSoLuong.TabIndex = 9;
             // 
+            // btnQuayLai
+            // 
+            this.btnQuayLai.Location = new System.Drawing.Point(18, 378);
+            this.btnQuayLai.Name = "btnQuayLai";
+            this.btnQuayLai.Size = new System.Drawing.Size(106, 60);
+            this.btnQuayLai.TabIndex = 10;
+            this.btnQuayLai.Text = "Quay Lại";
+            this.btnQuayLai.UseVisualStyleBackColor = true;
+            this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
+            // 
             // fDatLenh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(635, 487);
+            this.Controls.Add(this.btnQuayLai);
             this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.txtGia);
             this.Controls.Add(this.cbMaCP);
@@ -181,5 +193,6 @@
         private System.Windows.Forms.ComboBox cbMaCP;
         private System.Windows.Forms.TextBox txtGia;
         private System.Windows.Forms.TextBox txtSoLuong;
+        private System.Windows.Forms.Button btnQuayLai;
     }
 }

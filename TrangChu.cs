@@ -31,13 +31,14 @@ namespace đồ_án_tin_học_1
 
         private void btnMuaBan_Click(object sender, EventArgs e)
         {
-            fDatLenh frm = new fDatLenh(frmBangGia);
+            fDatLenh frm = new fDatLenh();
             frm.ShowDialog();
         }
 
-        private void TrangChu_Load(object sender, EventArgs e)
+        private void btnTTTK_Click(object sender, EventArgs e)
         {
-
+            ThongTinTaiKhoan tttk = new ThongTinTaiKhoan();
+            tttk.Show();
         }
     }
 }

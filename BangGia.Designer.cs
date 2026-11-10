@@ -32,6 +32,7 @@
             this.lblMarketTitle = new System.Windows.Forms.Label();
             this.lblMarketTime = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnQuayLai = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarket)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +47,6 @@
             this.dgvMarket.RowTemplate.Height = 24;
             this.dgvMarket.Size = new System.Drawing.Size(973, 492);
             this.dgvMarket.TabIndex = 0;
-            this.dgvMarket.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvMarket.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvMarket_CellFormatting);
             // 
             // lblMarketTitle
@@ -59,7 +59,6 @@
             this.lblMarketTitle.Size = new System.Drawing.Size(533, 42);
             this.lblMarketTitle.TabIndex = 1;
             this.lblMarketTitle.Text = "BẢNG ĐIỆN CHỨNG KHOÁN";
-            this.lblMarketTitle.Click += new System.EventHandler(this.lblMarketTitle_Click);
             // 
             // lblMarketTime
             // 
@@ -71,7 +70,6 @@
             this.lblMarketTime.Size = new System.Drawing.Size(164, 22);
             this.lblMarketTime.TabIndex = 2;
             this.lblMarketTime.Text = "Thoi Gian Cap nhat";
-            this.lblMarketTime.Click += new System.EventHandler(this.lblMarketTime_Click);
             // 
             // panel1
             // 
@@ -83,11 +81,22 @@
             this.panel1.Size = new System.Drawing.Size(973, 127);
             this.panel1.TabIndex = 3;
             // 
+            // btnQuayLai
+            // 
+            this.btnQuayLai.Location = new System.Drawing.Point(847, 485);
+            this.btnQuayLai.Name = "btnQuayLai";
+            this.btnQuayLai.Size = new System.Drawing.Size(105, 43);
+            this.btnQuayLai.TabIndex = 4;
+            this.btnQuayLai.Text = "Quay Lại";
+            this.btnQuayLai.UseVisualStyleBackColor = true;
+            this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
+            // 
             // BangGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 632);
+            this.Controls.Add(this.btnQuayLai);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvMarket);
             this.Name = "BangGia";
@@ -105,5 +114,6 @@
         private System.Windows.Forms.Label lblMarketTitle;
         private System.Windows.Forms.Label lblMarketTime;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnQuayLai;
     }
 }

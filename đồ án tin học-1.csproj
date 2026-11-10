@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dulieuchung.cs" />
     <Compile Include="fDatLenh.cs">
       <SubType>Form</SubType>
     </Compile>
