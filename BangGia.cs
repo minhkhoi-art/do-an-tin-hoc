@@ -180,9 +180,17 @@ namespace đồ_án_tin_học_1
             {
                 return;
             }
+            // Thêm màu chữ cho từng cột
+            if (e.ColumnIndex == 1 )
+                e.CellStyle.ForeColor = Color.FromArgb(250, 204, 21); // Vàng
+            else if (e.ColumnIndex == 2)
+                e.CellStyle.ForeColor = Color.FromArgb(232, 121, 249); // Tím
+            else if (e.ColumnIndex == 3)
+                e.CellStyle.ForeColor = Color.FromArgb(34, 211, 238); // Xanh lơ
+ 
 
-
-           //Lấy dòng hiện tại trong DataGridView và lưu vào biến row.
+            e.CellStyle.SelectionForeColor = e.CellStyle.ForeColor;
+            //Lấy dòng hiện tại trong DataGridView và lưu vào biến row.
             DataGridViewRow row = dgvMarket.Rows[e.RowIndex];
             //object là kiểu dữ liệu có thể chứa nhiều loại giá trị khác nhau.
             object giaThamChieuValue = row.Cells["Giá tham chiếu"].Value;
@@ -213,12 +221,12 @@ namespace đồ_án_tin_học_1
             }
 
 
-            // Khi người dùng nhấn vào cột nào sẽ lấy tên cột đó :
-            //e.ColumnIndex: Lấy vị trí cột đang được xử lý.
-            //dgvMarket.Columns[...]: Truy cập cột tương ứng.
-            //.Name: Lấy tên của cột đó.
+            //// Khi người dùng nhấn vào cột nào sẽ lấy tên cột đó :
+            ////e.ColumnIndex: Lấy vị trí cột đang được xử lý.
+            ////dgvMarket.Columns[...]: Truy cập cột tương ứng.
+            ////.Name: Lấy tên của cột đó.
             string tenCot = dgvMarket.Columns[e.ColumnIndex].Name;
-            if(tenCot == "Giá hiện tại" || tenCot== "% biến động")
+            if (tenCot == "Giá hiện tại" || tenCot == "% biến động")
             {
                 //Dùng để thiết lập màu chữ bình thường của ô khi ô đó chưa được chọn.
                 e.CellStyle.ForeColor = mauChu;
@@ -232,5 +240,7 @@ namespace đồ_án_tin_học_1
         {
             this.Hide();
         }
+
+
     }
 }

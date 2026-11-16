@@ -94,6 +94,7 @@ namespace đồ_án_tin_học_1
         public void hienthidanhsach()
         {
             dgvDanhsachDangGiu.DataSource = bg.DanhMucTable;
+            ThietKeBangDanhMuc();
         }
 
         
@@ -102,5 +103,96 @@ namespace đồ_án_tin_học_1
             // quay lại trang chủ
             this.Close();
         }
+
+        private void ThongTinTaiKhoan_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ThietKeBangDanhMuc()
+        {
+
+            // Chiều cao dòng
+            dgvDanhsachDangGiu.RowTemplate.Height = 45;
+            // Chế độ chọn dòng
+            dgvDanhsachDangGiu.SelectionMode =DataGridViewSelectionMode.FullRowSelect;
+
+            dgvDanhsachDangGiu.MultiSelect = false;
+            // Tự chia độ rộng cột
+            dgvDanhsachDangGiu.AutoSizeColumnsMode =DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Đặt tên tiêu đề ngắn gọn
+            dgvDanhsachDangGiu.Columns["Ma CP"].HeaderText = "MÃ CP";
+            dgvDanhsachDangGiu.Columns["So Luong"].HeaderText = "SỐ LƯỢNG";
+            dgvDanhsachDangGiu.Columns["Gia Von TB"].HeaderText = "GIÁ VỐN TB";
+            dgvDanhsachDangGiu.Columns["Gia Luc Mua"].HeaderText = "GIÁ LÚC MUA";
+            dgvDanhsachDangGiu.Columns["Gia Hien Tai"].HeaderText = "GIÁ HIỆN TẠI";
+            dgvDanhsachDangGiu.Columns["Tong Gia Mua"].HeaderText = "TỔNG TIỀN MUA";
+            dgvDanhsachDangGiu.Columns["Tổng Giá Khi Bán"].HeaderText = "GIÁ TRỊ NẾU BÁN";
+            dgvDanhsachDangGiu.Columns["Tổng Lãi Lỗ Nếu Bán"].HeaderText = "LÃI / LỖ DỰ KIẾN";
+
+            // Độ rộng tương đối của từng cột
+            dgvDanhsachDangGiu.Columns["Ma CP"].FillWeight = 65;
+            dgvDanhsachDangGiu.Columns["So Luong"].FillWeight = 80;
+            dgvDanhsachDangGiu.Columns["Gia Von TB"].FillWeight = 85;
+            dgvDanhsachDangGiu.Columns["Gia Luc Mua"].FillWeight = 85;
+            dgvDanhsachDangGiu.Columns["Gia Hien Tai"].FillWeight = 90;
+            dgvDanhsachDangGiu.Columns["Tong Gia Mua"].FillWeight = 105;
+            dgvDanhsachDangGiu.Columns["Tổng Giá Khi Bán"].FillWeight = 110;
+            dgvDanhsachDangGiu.Columns["Tổng Lãi Lỗ Nếu Bán"].FillWeight = 110;
+
+            // Căn phải các cột số
+            foreach (DataGridViewColumn cot in dgvDanhsachDangGiu.Columns)
+            {
+                if (cot.Name != "Ma CP")
+                {
+                    cot.DefaultCellStyle.Alignment =DataGridViewContentAlignment.MiddleRight;
+                }
+            }
+
+            // Định dạng số
+            dgvDanhsachDangGiu.Columns["So Luong"].DefaultCellStyle.Format = "N0";
+            dgvDanhsachDangGiu.Columns["Gia Von TB"].DefaultCellStyle.Format = "N2";
+            dgvDanhsachDangGiu.Columns["Gia Luc Mua"].DefaultCellStyle.Format = "N2";
+            dgvDanhsachDangGiu.Columns["Gia Hien Tai"].DefaultCellStyle.Format = "N2";
+            dgvDanhsachDangGiu.Columns["Tong Gia Mua"].DefaultCellStyle.Format = "N0";
+            dgvDanhsachDangGiu.Columns["Tổng Giá Khi Bán"].DefaultCellStyle.Format = "N0";
+            dgvDanhsachDangGiu.Columns["Tổng Lãi Lỗ Nếu Bán"].DefaultCellStyle.Format = "N0";
+
+            // Làm nổi bật mã cổ phiếu
+            dgvDanhsachDangGiu.Columns["Ma CP"].DefaultCellStyle.ForeColor =Color.FromArgb(96, 165, 250);
+            dgvDanhsachDangGiu.Columns["Ma CP"].DefaultCellStyle.Font =new Font("Segoe UI", 10F, FontStyle.Bold);
+
+            // Đổi màu lãi/lỗ theo giá trị
+            dgvDanhsachDangGiu.CellFormatting -= dgvDanhsachDangGiu_CellFormatting;
+            dgvDanhsachDangGiu.CellFormatting += dgvDanhsachDangGiu_CellFormatting;
+        }
+
+        private void dgvDanhsachDangGiu_CellFormatting(
+            object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if (dgvDanhsachDangGiu.Columns[e.ColumnIndex].Name== "Tổng Lãi Lỗ Nếu Bán")
+            {
+                if (e.Value == null)
+                    return;
+
+                decimal laiLo = Convert.ToDecimal(e.Value);
+
+                if (laiLo > 0)
+                    e.CellStyle.ForeColor = Color.FromArgb(34, 197, 94);
+
+                else if (laiLo < 0)
+                    e.CellStyle.ForeColor = Color.FromArgb(239, 68, 68);
+
+                else
+                    e.CellStyle.ForeColor = Color.FromArgb(148, 163, 184);
+
+                e.CellStyle.SelectionForeColor = e.CellStyle.ForeColor;
+            }
+        }
+
     }
 }

@@ -251,9 +251,9 @@ namespace đồ_án_tin_học_1
 
         }
 
-        private void btnQuayLai_Click(object sender, EventArgs e)
+        private void cbMaCP_DropDownClosed(object sender, EventArgs e)
         {
-            this.Close();
+            this.ActiveControl = null;
         }
     }
 }

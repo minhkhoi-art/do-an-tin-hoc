@@ -9,14 +9,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 namespace đồ_án_tin_học_1
 {
-    public partial class Form1 : Form
+    public partial class frmLogin : Form
     {
         SqlConnection con;
         SqlCommand cmd;
         frmsignup signup;
-        public Form1()
+        public frmLogin()
         {
             InitializeComponent();
         }
@@ -51,7 +52,7 @@ namespace đồ_án_tin_học_1
                 // nếu không trùng -> nếu khác tên -> hiện thông báo
                 if (kqtendangnhap != txtTenTk.Text)
                 {
-                    lblThongBao.BackColor = Color.Red;
+                    lblThongBao.BackColor =Color.FromArgb(11,21,48);
                     lblThongBao.Text = " Tên Tài Khoản Sai !!!";
                     return;
                 }
@@ -70,7 +71,7 @@ namespace đồ_án_tin_học_1
                     // nếu không trùng -> mật khẩu sai -> hiện thông báo : 
                     if (kqmatkhau.ToString() != txtMatKhau.Text)
                     {
-                        lblThongBao.BackColor = Color.Red;
+                        lblThongBao.BackColor = Color.FromArgb(11,21,48);
                         lblThongBao.Text = "Mật Khẩu Sai!!!!";
                         return;
                     }
@@ -104,18 +105,40 @@ namespace đồ_án_tin_học_1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            txtMatKhau.PasswordChar = '*';
+            txtMatKhau.PasswordChar = '●';
         }
 
-        private void ckBshowpass_CheckedChanged(object sender, EventArgs e)
+        private void btnLogIn_MouseEnter(object sender, EventArgs e)
         {
-            if (ckBshowpass.Checked)
+            btnLogIn.BackColor = Color.FromArgb(59, 130, 246);
+        }
+
+        private void btnLogIn_MouseLeave(object sender, EventArgs e)
+        {
+            btnLogIn.BackColor = Color.FromArgb(37, 99, 235);
+        }
+
+        private void btnSignUp_MouseEnter(object sender, EventArgs e)
+        {
+            btnSignUp.BackColor = Color.FromArgb(51, 65, 85);
+        }
+
+        private void btnSignUp_MouseLeave(object sender, EventArgs e)
+        {
+            btnSignUp.BackColor = Color.FromArgb(27, 45, 77);
+        }
+
+        private void btnHienMatKhau_Click(object sender, EventArgs e)
+        {
+            if (txtMatKhau.PasswordChar == '●')
             {
                 txtMatKhau.PasswordChar = '\0';
+                btnHienMatKhau.Text = "ẨN";
             }
             else
             {
-                txtMatKhau.PasswordChar = '*';
+                txtMatKhau.PasswordChar = '●';
+                btnHienMatKhau.Text = "HIỆN";
             }
         }
     }

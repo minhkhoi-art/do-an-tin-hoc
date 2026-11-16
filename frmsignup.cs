@@ -53,15 +53,54 @@ namespace đồ_án_tin_học_1
             }
             else
             {
-                txtMk.PasswordChar = '*';
+                txtMk.PasswordChar = '●';
             }
         }
 
         private void frmsignup_Load(object sender, EventArgs e)
         {
-            txtMk.PasswordChar = '*';
+            txtMk.PasswordChar = '●';
             // mở lên tạo 1 cái kết nối 
             con = new SqlConnection(KetNoi.chuoiKetNoi);
+        }
+
+        private void txtTenTk_Enter(object sender, EventArgs e)
+        {
+            lblGoiYTen.Visible = false;
+        }
+
+        private void txtMk_Enter(object sender, EventArgs e)
+        {
+            lblGoiYMatKhau.Visible = false;
+        }
+
+        private void txtTenTk_Leave(object sender, EventArgs e)
+        {
+            if (txtTenTk.Text == "")
+            {
+                lblGoiYTen.Visible = true;
+            }
+        }
+
+        private void txtMk_Leave(object sender, EventArgs e)
+        {
+            if (txtMk.Text == "")
+            {
+                lblGoiYMatKhau.Visible = true;
+            }
+        }
+        private void lblGoiYTen_Click(object sender, EventArgs e)
+        {
+            lblGoiYTen.Visible = false;
+            //txtTenTk.Focus(); sẽ đưa con trỏ vào TextBox tên tài khoản(txtTenTk).
+            txtTenTk.Focus();
+        }
+
+        private void lblGoiYMatKhau_Click(object sender, EventArgs e)
+        {
+            lblGoiYMatKhau.Visible = false;
+            //txtMk.Focus(); sẽ đưa con trỏ vào TextBox mật khẩu(txtMk).
+            txtMk.Focus();
         }
     }
 }
